@@ -1,0 +1,28 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+group 'hu.garaba'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+gradlePlugin {
+    plugins {
+        simplePlugin {
+            id = 'hu.garaba.teavm-gradle-plugin'
+            implementationClass = 'hu.garaba.TeaVMPlugin'
+        }
+    }
+}
+
+dependencies {
+    implementation 'org.teavm:teavm-tooling:0.7.0'
+    implementation 'org.teavm:teavm-cli:0.7.0'
+
+    implementation 'org.mapstruct:mapstruct:1.5.2.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.2.Final'
+}
